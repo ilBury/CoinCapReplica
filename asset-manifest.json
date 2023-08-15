@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/CoinCapReplica/static/css/main.f705cf66.css",
+    "main.js": "/CoinCapReplica/static/js/main.0c2c7fa1.js",
+    "index.html": "/CoinCapReplica/index.html",
+    "static/media/rank.svg": "/CoinCapReplica/static/media/rank.ef4828c9732ce7e60ab856cf49e2e58c.svg",
+    "main.f705cf66.css.map": "/CoinCapReplica/static/css/main.f705cf66.css.map",
+    "main.0c2c7fa1.js.map": "/CoinCapReplica/static/js/main.0c2c7fa1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f705cf66.css",
+    "static/js/main.0c2c7fa1.js"
+  ]
+}

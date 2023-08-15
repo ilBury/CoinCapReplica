@@ -16,14 +16,17 @@ function App() {
 
 
   return (
+
+    
     <CoinContext.Provider value={{coin, setCoin}}>
       <Header />
       <Routes>
-        <Route path='/'  element={<Main/>} />
+        <Route path='/CoinCapReplica'  element={<Main/>} />
         <Route path='/coin/:id' element={<Coin/>} />
       </Routes>
     
     </CoinContext.Provider>
+    
     
   );
 }

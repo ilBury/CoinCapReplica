@@ -1,0 +1,56 @@
+.modal {
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    z-index: 100;
+    .content {
+        padding: 20px;
+        border-radius: 12px;
+        background-color: #FFFFFF;
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        .title {
+            margin: 0;
+            
+        }
+        .coins {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            padding-top: 10px;
+            .coin {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 1px solid #75757541;
+                
+                padding: 10px 0;
+                .btn {
+                    padding: 0;
+                    border: none;
+                    background-color: rgba(0, 0, 0, 0);
+                    cursor: pointer;
+                }
+                .btn:hover {
+                    filter: drop-shadow(0 0 4px rgb(219, 92, 92));
+                }
+            }
+        }
+        
+    }
+}
+.modal.active {
+    transform: scale(1);
+}

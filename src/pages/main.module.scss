@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
+    padding-top: 20px;
+    .table {
+        background-color: #ddf6f4;
+        width: 1000px !important;
+        box-shadow: 1px 1px 20px ;
+        .header  {
+            font-weight: 600;
+        }
+        .row {
+
+
+            .btn {
+                display: flex;
+                align-items: center;
+                padding: 0;
+                border: none;
+                border-radius: 20px;
+                
+                background-color: rgba($color: #000000, $alpha: 0);
+                cursor: pointer;
+                #img {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+            .btn:hover {
+                transition: 1s;
+                box-shadow: 1px 1px 10px;
+            }
+        }
+        .row:hover {
+            transition: 1s;
+            background-color: #e7c8c8;
+            cursor: pointer;
+        }
+        
+        
+    }
+}

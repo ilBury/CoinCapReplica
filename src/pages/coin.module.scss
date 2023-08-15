@@ -1,0 +1,51 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    
+    .info {
+        height: 200px;
+        width: 100%;
+        background: linear-gradient(to right, rgb(72, 72, 213), rgb(139, 139, 228));
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        .rank {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            img {
+                width: 100px;
+                height: 100px;
+                filter: drop-shadow(0 0 4px rgb(69, 67, 67));
+            }
+           
+            .digital {
+                position: absolute;
+                top: 20px;
+                font-size: 26px;
+                color: #FFFFFF;
+                font-weight: 600;
+            }
+            .desc {
+                bottom: 20px;
+                font-size: 16px;
+                position: absolute;
+                color: #FFFFFF;
+            }
+        }
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            color: #FFFFFF;
+            height: 50%;
+            justify-content: space-around;
+            
+        }        
+    }
+    .chart {
+        margin: 0 auto;
+        
+    }
+}

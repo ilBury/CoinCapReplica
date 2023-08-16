@@ -22,7 +22,8 @@ const Main = ({briefcaseActive, setBriefcaseActive}) => {
     const [currentPage, setCurrentPage] = useState(20);
     const navigate = useNavigate();
     const {coin, setCoin} = useContext<any>(CoinContext);
-
+    const [inModal, setInModal] = useState(null);
+    
     const [addCoinActive, setaddCoinActive] = useState<boolean>(false);
 
     useEffect(() => {
@@ -30,10 +31,10 @@ const Main = ({briefcaseActive, setBriefcaseActive}) => {
             const data = await getData(currentPage);
             setCoins(data.data);
         }
-        console.log(briefcaseActive);
         if(currentPage) {
             fetchData();     
         }    
+        console.log(coin);
     }, [currentPage]);
 
     useEffect(() => {
@@ -54,6 +55,9 @@ const Main = ({briefcaseActive, setBriefcaseActive}) => {
         navigate(`/coin/:${item.rank}`);
     }
 
+    const forwardModal = (item) => {
+        setInModal(item)
+    }
     
 
     return (
@@ -82,7 +86,7 @@ const Main = ({briefcaseActive, setBriefcaseActive}) => {
                                 <TableCell component="th" scope="row">
                                     <button 
                                         className={styles.btn}
-                                        onClick={(e) => {setaddCoinActive(true); e.stopPropagation() }}
+                                        onClick={(e) => {setaddCoinActive(true); e.stopPropagation(); forwardModal(item); }}
                                         >
                                         <img id={styles.img} src={addImg} alt="#" />
                                     </button>
@@ -111,7 +115,7 @@ const Main = ({briefcaseActive, setBriefcaseActive}) => {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <AddCoin active={addCoinActive} setActive={setaddCoinActive} />
+            <AddCoin value={inModal} active={addCoinActive} setActive={setaddCoinActive} />
         </>    
     )
 }

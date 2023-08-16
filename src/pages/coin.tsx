@@ -6,6 +6,7 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 //@ts-ignore
 import { getHistory } from '../utils/getData.ts';
 
+
 interface Coordinate {
     name: string,
     uv: number
@@ -15,7 +16,7 @@ const Coin = ({ route }) => {
     
     const {coin, setCoin} = useContext<any>(CoinContext);
     const [history, setHistory] = useState<any>(null);
-    const [val, setVal] = useState<Coordinate[]>([])
+    const [val, setVal] = useState<Coordinate[]>([]);
     
     
     useEffect(() => {
@@ -26,6 +27,7 @@ const Coin = ({ route }) => {
         } else {
             const val = localStorage.getItem('coin');
             setCoin(JSON.parse(val!));
+            
         }
         
     })

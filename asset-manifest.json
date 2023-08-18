@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/CoinCapReplica/static/css/main.6dc77024.css",
-    "main.js": "/CoinCapReplica/static/js/main.ce3eb75c.js",
+    "main.js": "/CoinCapReplica/static/js/main.1d013a06.js",
     "index.html": "/CoinCapReplica/index.html",
     "main.6dc77024.css.map": "/CoinCapReplica/static/css/main.6dc77024.css.map",
-    "main.ce3eb75c.js.map": "/CoinCapReplica/static/js/main.ce3eb75c.js.map"
+    "main.1d013a06.js.map": "/CoinCapReplica/static/js/main.1d013a06.js.map"
   },
   "entrypoints": [
     "static/css/main.6dc77024.css",
-    "static/js/main.ce3eb75c.js"
+    "static/js/main.1d013a06.js"
   ]
 }

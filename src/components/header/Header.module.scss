@@ -36,3 +36,24 @@
         
     }
 }
+
+
+@media (max-width: 600px) {
+   
+    .header {
+        height: 85px;
+    }
+}
+
+@media (max-width: 500px) {
+ 
+    .header {
+        justify-content: center;
+        .block {
+            display: none !important;
+        }
+    }
+    
+   
+}    
+

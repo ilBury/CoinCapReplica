@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { CoinContext } from '../App';
+import { CoinContext } from '../../App';
 import styles from './coin.module.scss'
-import rankImg from '../images/rank.svg'
+import rankImg from '../../images/rank.png'
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
-//@ts-ignore
-import { getHistory } from '../utils/getData.ts';
+import backImg from '../../images/back.png'
+
+import { getHistory } from '../../utils/getData';
+import { useNavigate } from 'react-router-dom';
 
 
 interface Coordinate {
@@ -12,30 +14,26 @@ interface Coordinate {
     uv: number
 }
 
-const Coin = ({ route }) => {
+const Coin = () => {
     
     const {coin, setCoin} = useContext<any>(CoinContext);
     const [history, setHistory] = useState<any>(null);
     const [val, setVal] = useState<Coordinate[]>([]);
-    
+    const navigate = useNavigate();
     
     useEffect(() => {
-
         if(coin) {
             localStorage.setItem('coin', JSON.stringify(coin));
             localStorage.setItem('id', coin.id);
         } else {
             const val = localStorage.getItem('coin');
-            setCoin(JSON.parse(val!));
-            
+            setCoin(JSON.parse(val!)); 
         }
-        
     })
     
 
 
     useEffect(() => {
-
         const fetchData = async (id: string) => {
             const data = await getHistory(id);
             setHistory(data.data);
@@ -45,32 +43,42 @@ const Coin = ({ route }) => {
             coin ? fetchData(coin.id) : fetchData(localStorage.getItem('id')!)
             
         } 
-     
-        
-        
-        
     }, [history])
+
+    const getWeekDay = (date: Date) => {
+        const days: string[] = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
+
+        return days[date.getDay()];
+    }
 
 
     useEffect(() => {
-        let copy = Object.assign([], val);
-        for(let item in history) { 
-            copy.push({name: String(history[item].time), uv: parseFloat(history[item].priceUsd)} );    
+        const copy = Object.assign([], val);
+        for(const item in history) { 
+            copy.push({name: getWeekDay(new Date(history[item].time)), uv: parseFloat(history[item].priceUsd)} );   
         }
         if(!val.length) setVal(copy);
         
     }, [val])
 
+    const back = () => {
+        localStorage.removeItem('coin');
+        localStorage.removeItem('id');
+        navigate('/CoinCapReplica')
+    }
+
     return (
         <div className={styles.container}>
+            
             <div className={styles.info}>
+            <button className={styles.back_btn} onClick={back}><img src={backImg} alt="#" /></button>
                 <div className={styles.rank}>
                     <img src={rankImg} alt="#" />
                     <span className={styles.digital}>{coin ? coin.rank : 'Load...'}</span>
                     <span className={styles.desc}>Rank</span>
                 </div>
                 <div className={styles.wrapper} >
-                    <span style={{fontSize: 26, fontWeight: 600}}>{coin ? coin.name +  `\t(${coin.symbol})` : 'Loading...'}</span>
+                    <span className={styles.title} style={{fontSize: 26, fontWeight: 600}}>{coin ? coin.name +  `\t(${coin.symbol})` : 'Loading...'}</span>
                     <span>{coin ? '$' + parseFloat(coin.priceUsd).toFixed(2) : 'Loading...'}</span>
                 </div>
                 <div className={styles.wrapper}>
@@ -98,7 +106,7 @@ const Coin = ({ route }) => {
             </div>
 
             <div className={styles.chart}>
-                <LineChart startAngle={1000} width={600} height={300} data={val}>
+                <LineChart style={styles.block} startAngle={1000} width={600} height={300} data={val}>
                     <Line type="monotone" dataKey="uv" stroke="#8884d8" />
                     <CartesianGrid stroke="#ccc" />
                     <XAxis dataKey="name" />

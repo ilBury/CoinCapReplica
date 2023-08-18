@@ -1,9 +1,9 @@
-export const getData = async (currentPage: Number) => {
+export const getData = async (currentPage: number) => {
     const resp = await fetch(`https://api.coincap.io/v2/assets?limit=${currentPage}`);
     return await resp.json();
 }
 
-export const getCoin = async (id: String) => {
+export const getCoin = async (id: string) => {
     const resp = await fetch(`https://api.coincap.io/v2/assets?ids=${id}`);
     return await resp.json();
 }

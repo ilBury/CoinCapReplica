@@ -1,4 +1,5 @@
 .container {
+ 
     display: flex;
     flex-direction: column;
     
@@ -9,6 +10,23 @@
         display: flex;
         align-items: center;
         justify-content: space-evenly;
+        position: relative;
+        .back_btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 0;
+            border: none;
+            background-color: rgba(72, 72, 213, 0);
+            cursor: pointer;
+            img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        .back_btn:hover {
+            filter: drop-shadow(0 0 4px rgb(69, 67, 67));
+        }
         .rank {
             position: relative;
             display: flex;
@@ -46,6 +64,29 @@
     }
     .chart {
         margin: 0 auto;
-        
+        padding-top: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .chart {
+        overflow-x: scroll;
+        width: 500px;
+    }
+}
+
+@media (max-width: 550px) {
+    .wrapper {
+        font-size: 12px;
+        .title {
+            font-size: 15px !important;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .chart {
+        overflow-x: scroll;
+        width: 300px;
     }
 }

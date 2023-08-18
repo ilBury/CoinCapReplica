@@ -63,9 +63,8 @@ const BriefCase = ({props, active, setActive} : any) => {
             if(num.test(String(delAmount))) {
                 if(parseFloat(delAmount!) > item.amount) {
                     alert("You can't remove more, than you have")
-                } else {         
-                    
-                    item.amount = calculate(item.amount, parseFloat(delAmount!));
+                } else {     
+                    item.amount = calculate(item.amount, parseFloat(delAmount!.replace(/,/, '.')));
                     
                     setCoinsInBriefcase(coinsInBriefcase);
                     setChangedItem(item);

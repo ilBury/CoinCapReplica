@@ -80,7 +80,7 @@ const Header = () => {
                     <span>
                         {checkPrice(String(price))} USD
                         {costDifference < 0 ? '\t' + costDifference.toFixed(2) + '\t' : '\t' + '+' + costDifference.toFixed(2) + '\t' } 
-                        ({percentDifference > 0 ? '-' + checkPrice(String(percentDifference)) : '+' + checkPrice(String(percentDifference))} %)
+                        ({percentDifference > 0 ? '-' + checkPrice(String(percentDifference)) : '+' + checkPrice(String(Math.abs(percentDifference)))} %)
                     </span>
                 </div>
             </header>

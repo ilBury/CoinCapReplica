@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
-import styles from './Header.module.scss'
-import briefCaseImg from '../../images/briefcase.png'
+import styles from './Header.module.scss';
+import briefCaseImg from '../../images/briefcase.png';
 
 import { getCoin, getData } from "../../utils/getData";
 
@@ -47,6 +47,7 @@ const Header = () => {
     const costDifferences = () => {
         let apiCost: number = 0;   
         let briefcaseCost = 0;
+        if(!localStorage.getItem('coin_in_briefcase')) return;
         JSON.parse(localStorage.getItem('coin_in_briefcase')!).forEach((el: any) => {
             const fetchData = async () => {
                 const data = await getCoin(el.coin.id);
